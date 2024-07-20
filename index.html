@@ -5,52 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Responsive Google Form</title>
     <style>
-      body {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: Arial, sans-serif;
-        background-color: #f9f9f9;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-      }
       .responsive-iframe-container {
         position: relative;
-        width: 100%;
-        max-width: 800px; /* Maximum width for the form */
+        padding-bottom: 100%; /* Adjust based on form's height */
+        height: 0;
         overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        background-color: #fff;
+        max-width: 100%;
       }
       .responsive-iframe-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        border: none;
+        height: 100%;
+        border: 0;
       }
     </style>
   </head>
   <body>
     <div class="responsive-iframe-container">
       <iframe
-        id="google-form"
         src="https://docs.google.com/forms/d/e/1FAIpQLSd6i0KwfPFwsXjvBhnKFSOvL7jnU98fIuRTQBx6iVINJmY4rA/viewform?embedded=true"
         frameborder="0"
         marginheight="0"
         marginwidth="0"
-        onload="resizeIframe()"
         >Loading…</iframe
       >
     </div>
-    <script>
-      function resizeIframe() {
-        const iframe = document.getElementById("google-form");
-        iframe.onload = function () {
-          iframe.style.height =
-            iframe.contentWindow.document.body.scrollHeight + "px";
-        };
-      }
-    </script>
   </body>
 </html>
